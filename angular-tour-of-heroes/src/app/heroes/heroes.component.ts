@@ -5,17 +5,20 @@ import { HEROES } from '../mock-heroes';
 @Component({
   selector: 'app-heroes',
   templateUrl: './heroes.component.html',
-  styleUrls: ['./heroes.component.css']
+  styleUrls: ['./heroes.component.css'],
 })
 export class HeroesComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-  hero: Hero={
+  ngOnInit(): void {}
+  hero: Hero = {
     id: 1,
-    name: "Hellscream"
-  }
+    name: 'Hellscream',
+  };
   heroes = HEROES;
+
+  selectedHero?: Hero;
+  onSelect(hero: Hero): void {
+    this.selectedHero = hero;
+  }
 }
